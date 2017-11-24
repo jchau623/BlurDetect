@@ -9,3 +9,4 @@ A lightroom plugin that lets you discard all blurry photos from catalogue during
 * https://math.stackexchange.com/questions/1002/fourier-transform-for-dummies
 * Paper, *Analysis of focus measure operators for shape-from-focus* : https://pdfs.semanticscholar.org/8c67/5bf5b542b98bf81dcf70bd869ab52ab8aae9.pdf
 * http://www.cse.cuhk.edu.hk/leojia/all_final_papers/blur_detect_cvpr08.pdf
+* Saliency detection: https://blog.algorithmia.com/introduction-image-saliency-detection/
