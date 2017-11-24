@@ -22,6 +22,8 @@ Computer vision, Lightroom, plugin, extension, python, Lua
   * Histogram stretching:  
     * http://effbot.org/zone/pil-histogram-equalization.htm
  * Normalizing brightness: https://stackoverflow.com/a/38138050
+* Using RAW images in numpy: https://pypi.python.org/pypi/rawpy
+* Some code for converting matrix of image to black and white: https://imagepy.wordpress.com/2015/11/21/raw-image-processing-in-python-an-example/
 
 # Plan
 1. Convert images to grayscale
