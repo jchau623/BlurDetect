@@ -12,6 +12,10 @@ local lfs = require('lfs')
 	TODO: ensure it's a RAW file... but how? Not a standardized format...
 	TODO: what about recursive folder entries?
 --]]
+function readImage(path)
+	os.execute("python read_raws.py " .. path)
+end
+
 function getImages (path)
     for file in lfs.dir(path) do
         if file ~= "." and file ~= ".." then
@@ -27,10 +31,7 @@ function getImages (path)
     end
 end
 
-attrdir(arg[1])
+getImages(arg[1])
 --[[
 
 --]]
-function readImage(path)
-	
-end
