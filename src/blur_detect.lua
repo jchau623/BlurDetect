@@ -2,7 +2,6 @@
 	For initial purposes, we'll read in a folder of images and 
 	process these ones
 --]]
-
 local lfs = require('lfs')
 
 --[[
@@ -13,7 +12,7 @@ local lfs = require('lfs')
 	TODO: what about recursive folder entries?
 --]]
 function readImage(path)
-	os.execute("python read_raws.py " .. path)
+	os.execute("python read_raws.py " .. path .. " >> testResults.txt")
 end
 
 function getImages (path)
@@ -29,6 +28,15 @@ function getImages (path)
             end
         end
     end
+end
+
+if (arg[1] == nil) then
+    print("Please provide a folder path.")
+    return
+end
+if (arg[2] ~= nil) then
+    print("Too many arguments. Only argument needed is folder path.")
+    return
 end
 
 getImages(arg[1])
