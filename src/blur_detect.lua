@@ -12,7 +12,7 @@ local lfs = require('lfs')
 	TODO: what about recursive folder entries?
 --]]
 function readImage(path)
-	os.execute("python read_raws.py " .. path .. " >> testResults.txt")
+	os.execute("python read_raw.py " .. path .. " >> testResults.txt")
 end
 
 function getImages (path)

@@ -1,2 +1,4 @@
 rawpy==0.10.1
 opencv-python==3.3.0.10
+sklearn
+scipy

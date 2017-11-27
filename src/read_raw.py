@@ -1,6 +1,4 @@
 import sys
-import rawpy
-import time
 import cv2
 import numpy as np
 
@@ -64,58 +62,23 @@ def GLVN(image):
 	mu = m[0][0]
 	sigma = m[1][0]
 	return (sigma[0] * sigma[0]) / mu[0]
+
+def obtainScores(image):
+	scores = {}
+	scores["LAPV"] = laplacianVariance(image)
+	scores["LAPM"] = laplacianVariance(image)
+	scores["TENG"] = tenengrad(image, 7)
+	scores["GLVN"] = GLVN(image)
+	return scores
+
+def processImage(image):
+	# downsize the image for speed performance
+	img = resizeToMax1000Shape(image)
+	grayscale = convertToGrayscale(img)
+	# Adjust brightness
+	grayscale = adjust_gamma(grayscale, 3)
+	equalized_grayscale = applyCLAHE(3.0, (10,10), grayscale)
+	# Histogram equalization means noise is introduced.
+	denoised = applyDenoising(equalized_grayscale, 10, 7, 21)
+	return denoised
 ###
-
-start = time.time()
-
-if len(sys.argv) > 2:
-	print("One image at a time, please.")
-	exit()
-elif len(sys.argv) == 1:
-	print("Please provide an image.")
-	exit()
-
-path = sys.argv[1]
-try:
-	img = rawpy.imread(path)
-	img = img.postprocess()
-except:
-	try:
-		img = cv2.imread(path)
-	except:
-		exit()
-
-if img is None:
-	exit()
-else:
-	print(path)
-
-#grayscale = (0.21*img[:,:,0])+(0.72*img[:,:,0])+(0.07*img[:,:,0])
-# downsize the image for speed performance
-img = resizeToMax1000Shape(img)
-grayscale = convertToGrayscale(img)
-# Adjust brightness
-grayscale = adjust_gamma(grayscale, 3)
-equalized_grayscale = applyCLAHE(3.0, (10,10), grayscale)
-# Histogram equalization means noise is introduced.
-denoised = applyDenoising(equalized_grayscale, 10, 7, 21)
-cv2.imwrite("test.jpg", grayscale)
-cv2.imwrite("test_eq.jpg", equalized_grayscale)
-cv2.imwrite("test_eq_denoised.jpg", denoised)
-# Variance of Laplacian is a measure of focus
-var = laplacianVariance(img)
-var_lap = laplacianVariance(grayscale)
-var_lap_eq = laplacianVariance(equalized_grayscale)
-var_lap_eq_denoised = laplacianVariance(denoised)
-print("Score: " + str(var))
-print("Score with grayscale: " + str(var_lap))
-print("Score with equalized histogram: " + str(var_lap_eq))
-print("Score with denoising: " + str(var_lap_eq_denoised))
-modified_lap = modifiedLaplacian(denoised)
-print("modifiedLaplacian: " + str(modified_lap))
-tenengrad_score = tenengrad(denoised, 7)
-print("Tenengrad: " + str(tenengrad_score))
-glvn_score = GLVN(denoised)
-print("GLVN: " + str(glvn_score))
-end = time.time()
-print("Time elapsed: " + str(end - start) + "\n")
