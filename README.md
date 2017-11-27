@@ -24,6 +24,15 @@ Computer vision, Lightroom, plugin, extension, python, Lua
  * Normalizing brightness: https://stackoverflow.com/a/38138050
 * Using RAW images in numpy: https://pypi.python.org/pypi/rawpy
 * Some code for converting matrix of image to black and white: https://imagepy.wordpress.com/2015/11/21/raw-image-processing-in-python-an-example/
+## Machine Learning
+* https://stackoverflow.com/questions/2595176/which-machine-learning-classifier-to-choose-in-general
+* ["scikit-learn algorithm cheat sheet"](http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html)
+* http://scikit-learn.org/stable/modules/svm.html#classification
+* Determining what parameters to 
+* Test data:
+  * https://data.world/crowdflower/blurry-image-comparison
+  * http://mklab.iti.gr/project/imageblur
+  * http://home.deib.polimi.it/boracchi/Projects/BlurNoiseTradeOff_DataSet.html
 
 # Plan
 1. Convert images to grayscale
