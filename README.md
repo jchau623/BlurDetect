@@ -2,7 +2,7 @@
 A lightroom plugin that lets you discard all blurry photos from catalogue during import
 
 ## Keywords
-Computer vision, Lightroom, plugin, extension, python, Lua
+Computer vision, Lightroom, plugin, extension, python, Lua, Machine Learning
 
 # Links, Resources:
 
