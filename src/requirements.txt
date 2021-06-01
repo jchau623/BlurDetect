@@ -24,4 +24,4 @@ requests==2.18.4
 six==1.11.0
 speedtest-cli==1.0.6
 team==1.0
-urllib3==1.22
+urllib3==1.26.5
