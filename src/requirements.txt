@@ -8,7 +8,7 @@ lightdm-gtk-greeter-settings==1.2.1
 louis==3.3.0
 npyscreen==4.10.5
 numpy==1.13.3
-opencv-python==3.3.0.10
+opencv-python==3.4.0.12
 packaging==16.8
 pacman-mirrors==4.2.3
 pycairo==1.13.3
